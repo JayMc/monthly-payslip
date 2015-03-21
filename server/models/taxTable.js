@@ -1,6 +1,6 @@
 // Tax Table model
 
-var validation = require('./taxValidation');
+var validate = require('./taxValidation');
 
 var model = {
 
@@ -24,8 +24,8 @@ var model = {
 	findTaxBracket: function(salary, callback){
 		var self = this;
 
-		if(!validation.validateSalary(salary).valid){
-			callback(validation.validateSalary(salary).message, null);
+		if(!validate.salary(salary).valid){
+			callback(validate.salary(salary).message, null);
 		}else{
 			callback(
 				null,
@@ -33,23 +33,6 @@ var model = {
 					return (bracket.rangeStart <= salary && bracket.rangeEnd >= salary);
 				})
 			)
-		}
-	},
-
-	/**
-	*	Validate salary
-	*	returns an object{
-	*		valid: //if salary is a valid salary,
-	*		message: //to explain why the salary was invalid
-	*	}
-	*/
-	_validateSalary: function(salary){
-		if(typeof salary !== 'number'){
-			return {valid: false, message:'illegal salary type: requires Number'};
-		}else if(salary < 0){
-			return {valid: false, message:'illegal salary amount: must be above 0'};
-		}else{
-			return {valid: true, message:''};
 		}
 	}
 

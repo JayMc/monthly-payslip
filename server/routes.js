@@ -11,7 +11,14 @@ module.exports = function(app, express){
 	})
 
 	app.get(urlPrefix+'/tax-tables/get-bracket/:salary', function(req,res){
-		return res.json(TaxTable.findTaxBracket(req.params.salary));
+
+		TaxTable.findTaxBracket(Number(req.params.salary), function(err, taxBracket){
+			return res.json({
+				data: taxBracket,
+				error: err
+			})
+		})
+		
 	})
 
 	app.get(urlPrefix+'/calc-salary/:period/:salary', function(req,res){
