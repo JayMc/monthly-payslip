@@ -1,5 +1,5 @@
 
-var TaxTable = require('./models/taxTable.js');
+var TaxTable = require('./models/taxTable');
 
 var urlPrefix = '/api';
 
@@ -14,7 +14,9 @@ module.exports = function(app, express){
 		return res.json(TaxTable.findTaxBracket(req.params.salary));
 	})
 
-	
+	app.get(urlPrefix+'/calc-salary/:period/:salary', function(req,res){
+		return res.json(TaxTable.findTaxBracket(req.params.salary));
+	})	
 
 	app.use('/', express.static('public'));
 }
