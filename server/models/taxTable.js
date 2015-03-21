@@ -25,14 +25,20 @@ var model = {
 		var self = this;
 
 		if(!validate.salary(salary).valid){
-			callback(validate.salary(salary).message, null);
+			callback(
+				validate.salary(salary).message,
+				null
+			);
+
 		}else{
+
 			callback(
 				null,
 				self._fixture.filter(function(bracket){
 					return (bracket.rangeStart <= salary && bracket.rangeEnd >= salary);
-				})
+				})[0]
 			)
+
 		}
 	}
 

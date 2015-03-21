@@ -6,32 +6,47 @@ var validate = require('./taxValidation');
 var model = {
 
 
-	calcAmount: function(salary, superRate, callback){
+	calcAmount: function(salary, sr, callback){
 
-		if(!validation.superRate(superRate).valid){
-			callback(validate.superRate(superRate).message, null);
-		}
+		if(!validate.superRate(sr).valid){
+			callback(validate.superRate(sr).message, null);
+		}else
 
-		if(!validation.salary(salary).valid){
+		if(!validate.salary(salary).valid){
 			callback(validate.salary(salary).message, null);
 
-		}else{
-			var taxBracket = taxTable.findTaxBracket(salary);
-			var grossIncome = salary/12;
-			var incomeTax = (taxBracket[0].baseTax + (salary - taxBracket[0].threshhold) * taxBracket[0].taxEachDollar) / 12;
-			var netIncome = grossIncome - incomeTax;
-			var _super = grossIncome * superRate / 100;
+		}else
 
-			callback(
-				null,
-				{
-					grossIncome: grossIncome,
-					incomeTax: incomeTax,
-					netIncome: netIncome,
-					super: _super
+		if(validate.salary(salary).valid && validate.salary(salary).valid){
+
+			taxTable.findTaxBracket(salary, function(err, taxBracket){
+				if(err){
+					//bubble up error
+					callback(err, null);
+
+				}else{
+					var grossIncome = salary/12;
+					var incomeTax = (taxBracket.baseTax + (salary - taxBracket.threshhold) * taxBracket.taxEachDollar) / 12;
+					var netIncome = grossIncome - incomeTax;
+					var _super = grossIncome * sr / 100;
+
+					callback(
+						null,
+						{
+							grossIncome: grossIncome,
+							incomeTax: incomeTax,
+							netIncome: netIncome,
+							super: _super
+						}
+					)
+
 				}
-			)
 
+				
+			});
+
+		}else{
+			callback('unknown error', null)
 		}
 	}
 

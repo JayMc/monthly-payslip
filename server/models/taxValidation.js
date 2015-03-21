@@ -11,9 +11,13 @@ var model = {
 	*/
 	superRate: function(superRate){
 		if(typeof superRate !== 'number'){
-			return {valid: false, message:'illegal super rate type: requires Number'};
+			var msg = 'illegal super rate type: requires Number';
+			return {valid: false, message: msg};
+
 		}else if(superRate < 0 || superRate > 100){
-			return {valid: false, message:'illegal super rate amount: must be between 0 and 100'};
+			var msg = 'illegal super rate amount: must be between 0 and 100';
+			return {valid: false, message: msg};
+
 		}else{
 			return {valid: true, message:'success'};
 		}
@@ -28,9 +32,13 @@ var model = {
 	*/
 	salary: function(salary){
 		if(typeof salary !== 'number'){
-			return {valid: false, message:'illegal salary type: requires Number'};
+			var msg = 'illegal salary type: requires Number';
+			return {valid: false, message: msg};
+
 		}else if(salary < 0){
-			return {valid: false, message:'illegal salary amount: must be above 0'};
+			var msg = 'illegal salary amount: must be above 0';
+			return {valid: false, message: msg};
+
 		}else{
 			return {valid: true, message:'success'};
 		}

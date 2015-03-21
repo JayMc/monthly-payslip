@@ -9,7 +9,7 @@ describe('validation', function(){
  	//Salary
 	it('it should validate true on a real Salary', function(done){
 
-		var response = validate.salary(60000);
+		var response = validate.salary(110000);
 			response.should.be.type('object');
 			response.valid.should.be.true;
 			response.message.should.be.type('string');
@@ -18,7 +18,7 @@ describe('validation', function(){
 
 	it('it should validate false on a Salary as  string', function(done){
 
-		var response = validate.salary('60000');
+		var response = validate.salary('32000');
 			response.should.be.type('object');
 			response.valid.should.be.false;
 			response.message.should.be.type('string');
@@ -27,7 +27,7 @@ describe('validation', function(){
  
 	it('it should validate false on a Salary as a negative number', function(done){
 
-		var response = validate.salary(-60000);
+		var response = validate.salary(-67000);
 			response.should.be.type('object');
 			response.valid.should.be.false;
 			response.message.should.be.type('string');
