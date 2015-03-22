@@ -40,6 +40,10 @@ var model = {
 			)
 
 		}
+	},
+
+	taxTables: function(callback){
+		callback(this._fixture)
 	}
 
 };

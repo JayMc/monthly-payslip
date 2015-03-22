@@ -10,12 +10,13 @@ var model = {
 	*	}	*	
 	*/
 	superRate: function(superRate){
+
 		if(typeof superRate !== 'number'){
 			var msg = 'illegal super rate type: requires Number';
 			return {valid: false, message: msg};
 
-		}else if(superRate < 0 || superRate > 100){
-			var msg = 'illegal super rate amount: must be between 0 and 100';
+		}else if(superRate < 0 || superRate > 50){
+			var msg = 'illegal super rate amount: must be between 0 and 50';
 			return {valid: false, message: msg};
 
 		}else{

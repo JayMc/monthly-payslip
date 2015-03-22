@@ -25,10 +25,10 @@ var model = {
 					callback(err, null);
 
 				}else{
-					var grossIncome = salary/12;
-					var incomeTax = (taxBracket.baseTax + (salary - taxBracket.threshhold) * taxBracket.taxEachDollar) / 12;
+					var grossIncome = Math.round(salary/12);
+					var incomeTax = Math.round((taxBracket.baseTax + (salary - taxBracket.threshhold) * taxBracket.taxEachDollar) / 12);
 					var netIncome = grossIncome - incomeTax;
-					var _super = grossIncome * sr / 100;
+					var _super = Math.round(grossIncome * sr / 100);
 
 					callback(
 						null,

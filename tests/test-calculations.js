@@ -41,4 +41,32 @@ describe('calculations', function(){
 		});
 	})
 
+	it('it should round to whole numbers', function(done){
+
+		taxCal.calcAmount(60050, 9, function(err, taxInfo){
+			(err === null).should.be.true;
+
+			(taxInfo.grossIncome % 1).should.be.equal(0);
+			(taxInfo.incomeTax % 1).should.be.equal(0);
+			(taxInfo.netIncome % 1).should.be.equal(0);
+			(taxInfo.super % 1).should.be.equal(0);
+
+			done();
+		});
+	})
+
+	it('it should calculate tax accurately', function(done){
+
+		taxCal.calcAmount(60050, 9, function(err, taxInfo){
+			(err === null).should.be.true;
+
+			taxInfo.grossIncome.should.be.equal(5004);
+			taxInfo.incomeTax.should.be.equal(922);
+			taxInfo.netIncome.should.be.equal(4082);
+			taxInfo.super.should.be.equal(450);
+
+			done();
+		});
+	})
+
 });
