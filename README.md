@@ -50,10 +50,15 @@ As part of your solution:
 
 # Get started
  1. git clone https://github.com/JayMc/payslip-calc.git
- 2. npm install
- 3. bower install
- 4. node server.js
- 5. browse to [http://localhost:3000](http://localhost:3000)
+ 2. cd payslip-calc
+ 3. npm install
+ 4. bower install
+ 5. node server.js
+ 6. gulp concat
+ 7. browse to [http://localhost:3000](http://localhost:3000)
+
+You may need to install gulp "npm install -g gulp".
+
 
 # Running tests
  1. npm install -g mocha
