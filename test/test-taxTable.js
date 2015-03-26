@@ -13,7 +13,16 @@ describe('taxTable', function(){
 			done();
 		})
 	})
- 
+
+ 	it('it should get all tax brackets', function(done){
+		TaxTable.taxTables( function(err, tBs){
+			(err === null).should.be.true;
+			 console.log(tBs)
+			//tBs.should.be.type('array');
+			done();
+		})
+	})
+
  	it('it should return an error from string salary', function(done){
 		TaxTable.findTaxBracket('45000', function(err, tB){
 			err.should.be.type('string');

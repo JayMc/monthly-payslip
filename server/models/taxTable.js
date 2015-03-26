@@ -43,7 +43,7 @@ var model = {
 	},
 
 	taxTables: function(callback){
-		callback(this._fixture)
+		callback(null, this._fixture)
 	}
 
 };

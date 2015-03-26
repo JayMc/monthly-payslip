@@ -17,3 +17,6 @@ public/dist
 
 # Users Environment Variables
 .lock-wscript
+
+#test reporter
+coverage

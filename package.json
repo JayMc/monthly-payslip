@@ -21,7 +21,7 @@
     "supertest": "^0.15.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/istanbul test ./node_modules/.bin/_mocha -- -R spec"
   },
   "author": "Jason McIver",
   "license": "MIT"

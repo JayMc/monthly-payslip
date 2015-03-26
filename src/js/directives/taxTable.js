@@ -1,6 +1,6 @@
 angular.module('taxTable', []).directive('taxTable', ['calcTaxSrv', function(calcTaxSrv){
 	return {
-		retrict: 'E',
+		restrict: 'E',
 		controller: function($scope){
 			$scope.calcTax = function(){
 				calcTaxSrv.calcAmount($scope.sal, $scope.sup).$promise.then(function(response){
