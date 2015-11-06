@@ -62,7 +62,7 @@ You may need to install gulp "npm install -g gulp".
 
 # Running tests
  1. npm install -g mocha
- 2. mocha tests
+ 2. mocha test
 
 # Assumptions
  1. pay period not utilised - calculations based on only a single month (ie: salary / 12). 
