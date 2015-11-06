@@ -64,6 +64,11 @@ You may need to install gulp "npm install -g gulp".
  1. npm install -g mocha
  2. mocha test
 
+# Running tests with coverage score
+ 1. npm install -g istanbul
+ 2. istanbul cover _mocha -- -R spec
+ 3. open coverage/lcov-report/index.html
+
 # Assumptions
  1. pay period not utilised - calculations based on only a single month (ie: salary / 12). 
  2. CSV import / export - it's was unclear if it was requirement.
