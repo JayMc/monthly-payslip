@@ -66,7 +66,7 @@ You may need to install gulp "npm install -g gulp".
 
 # Running tests with coverage score
  1. npm install -g istanbul
- 2. istanbul cover _mocha -- -R spec
+ 2. npm test
  3. open coverage/lcov-report/index.html
 
 # Assumptions
