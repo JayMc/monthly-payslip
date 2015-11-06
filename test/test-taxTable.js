@@ -17,7 +17,6 @@ describe('taxTable', function(){
  	it('it should get all tax brackets', function(done){
 		TaxTable.taxTables( function(err, tBs){
 			(err === null).should.be.true;
-			 console.log(tBs)
 			//tBs.should.be.type('array');
 			done();
 		})
